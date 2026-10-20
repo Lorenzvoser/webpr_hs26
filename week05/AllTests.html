@@ -10,8 +10,15 @@
     const assert = expr => document.writeln(String(expr));
 </script>
 
-<script src="function/function.js"></script>
-<script src="function/functionTest.js"></script>
+<script>
+    const name = "function"
+
+    document.writeln('<script src="{name}/${name}.js"><'+'/script>');
+    document.writeln('<script src="function/functionTest.js"><'+'/script>');
+</script>
+
+<!--<script src="function/function.js"></script>-->
+<!--<script src="function/functionTest.js"></script>-->
 <script src="lambda/lambda.js"></script>
 <script src="lambda/lambdaTest.js"></script>
 

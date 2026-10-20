@@ -8,6 +8,12 @@ function start() {
     const userFunction = document.getElementById('user_function');
     const canvas       = document.getElementById('canvas');
 
+    display(canvas, x => eval(userFunction.value) );
+
+    userFunction.onchange = _evt => {
+        display(canvas, x => eval(userFunction.value) );
+    }
+
 
 }
 
