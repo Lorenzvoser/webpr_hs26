@@ -5,8 +5,8 @@
 
     const myObject = {
         a   : 1,
-        foo : function() { return this.a }
-        // foo() { return this.a }              // syntactic sugar
+        foo : function() { return this.a; }
+        // foo() { return this.a; }              // syntactic sugar
     };
     ok.push(myObject.foo() === 1);
 

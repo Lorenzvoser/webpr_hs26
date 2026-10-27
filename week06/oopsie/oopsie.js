@@ -1,5 +1,16 @@
 // Todo:
 
+const Player = name => {
+    let fallbackIndex = 0;
+    let progressIndex = 0;
+    return {
+        getFallbackIndex: () => fallbackIndex,
+        getProgressIndex: () => progressIndex,
+        turn:             () => fallbackIndex = progressIndex,
+        fallback:         () => progressIndex = fallbackIndex,
+        proceed :         stride => progressIndex = progressIndex+stride,
+    };
+};
 // create a proper Player construction with
 // state:
 //   fallbackIndex = 0 // place to fall back on oopsie
