@@ -1,5 +1,17 @@
 // Todo:
 
+const Player = name => {
+    let fallbackIndex = 0;
+    let progressIndex = 0;
+    return {
+        getFallbackIndex: () => fallbackIndex,
+        getProgressIndex: () => progressIndex,
+        turn:             () => fallbackIndex = progressIndex,
+        fallback:         () => progressIndex = fallbackIndex,
+        proceed:          stride => progressIndex = progressIndex + stride,
+    };
+};
+
 // create a proper Player construction with
 // state:
 //   fallbackIndex = 0 // place to fall back on oopsie
@@ -8,14 +20,33 @@
 //   proceed(stride) // proceed so many places
 //   fallback()      // "oopsie": go back to last start (fallback position)
 //   turn()          // cash in your win, update fallback position for next turn
-// 
+//
+
+// const Player = ( () => { //my way
+//     function Player (name){
+//         this.name = name;
+//         this.fallbackIndex = 0;
+//         this.progressIndex = 0;
+//     }
+//     Player.prototype.proceed = function(stride){
+//         this.progressIndex += this.progressIndex + stride;
+//     };
+//     Player.prototype.fallback = function(){
+//         this.progressIndex = this.fallbackIndex;
+//     };
+//     Player.prototype.turn = function(){
+//         this.fallbackIndex = this.progressIndex;
+//     };
+//     return Player;
+// }) ();
+
 
 function start() {
     const fields = document.getElementById('fields');
 
     for (let i = 0; i < 100; i++) {
         const field = document.createElement("DIV");
-        field.setAttribute("ID", "FIELD-"+i);
+        field.setAttribute("ID", "FIELD-" + i);
         field.textContent = " ";
         fields.appendChild(field);
     }
@@ -23,8 +54,8 @@ function start() {
 }
 
 function dice() {
-    const stride                              = Math.round(1 + Math.random() * 5);
-    document.getElementById('dice').innerText = ""+ stride;
+    const stride = Math.round(1 + Math.random() * 5);
+    document.getElementById('dice').innerText = "" + stride;
     if (stride === 3) {
         player.fallback();
     } else {
@@ -49,4 +80,4 @@ function display() {
     progressField.setAttribute("CLASS", "field progress");
 }
 
-player = Player("One");
+ player = Player("One");
