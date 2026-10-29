@@ -13,21 +13,34 @@
 
         document.writeln("real")
 
+
+
+        const first = 1;
+        const second =2 ;
+
+        const id = y => y;
+        const fst = x => y => x;
+
+        const snd = fst(id);
+
+
+        document.writeln(fst(first)(second))
+        document.writeln(snd(first)(second))
         // standard either
-        const Left = x => f => g => f(x);
-        const Right = x => f => g => g(x);
-        const either = e => f => g => e (f) (g);
-
-        const safeDiv = num => divisor =>
-            divisor === 0
-                ? Left ("cannot divide by 0")
-                : Right (num / divisor);
-
-        const result =safeDiv(1)(0);
-
-        either (result)
-        (msg => document.writeln(msg))
-        (val => document.writeln(val === 1));
+        // const Left = x => f => g => f(x);
+        // const Right = x => f => g => g(x);
+        // const either = e => f => g => e (f) (g);
+        //
+        // const safeDiv = num => divisor =>
+        //     divisor === 0
+        //         ? Left ("cannot divide by 0")
+        //         : Right (num / divisor);
+        //
+        // const result =safeDiv(1)(0);
+        //
+        // either (result)
+        // (msg => document.writeln(msg))
+        // (val => document.writeln(val === 1));
 
         // const s1 = x => y => z => x;
         // const s2 = x => y => z => y;

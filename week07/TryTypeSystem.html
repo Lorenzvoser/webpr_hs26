@@ -8,12 +8,68 @@
 
 <script>
 
+    // /**
+    //  * @type { <_T_> (arg1: _T_, arg2: _T_ ) => _T_ }
+    //  */
+    // const plus = (arg1, arg2) => {
+    //   return (arg1 + arg2)
+    // };
+    // /** @param { Number } _arg */
+    // const bar = _arg => undefined;
+    // bar(plus(1,2));
 
-    const foo = arg => {
-        return (arg + 1);
+    // /** @typedef { Number | BigInt } Numeral */
+    // /** @type { ( arg1: Numeral, arg2: Numeral ) => Number} */
+    // const plus = (arg1, arg2) => {
+    //     return (Number(arg1) + Number(arg2));
+    // };
+    // /** @param { Numeral } _arg */
+    // const bar = _arg => undefined;
+    // bar(plus(1n, 2));
+
+    // /**
+    //  * @param { Number  } arg1
+    //  * @param { Number? } arg2
+    //  * @return Number
+    //  */
+    // const plus = (arg1, arg2) => {
+    //     return (Number(arg1) + Number(arg2));
+    // };
+    // /** @param { Number } _arg */
+    // const bar = _arg => undefined;
+    // bar(plus(1));
+
+    /** @typedef { "1" | "2" } Numeral */
+    /** @type { (arg1: Numeral, arg2: Numeral ) => Number } */
+    const plus = (arg1, arg2) => {
+        return (Number(arg1) + Number(arg2));
+    };
+    /** @param { Number } _arg */
+    const bar = _arg => undefined;
+    bar(plus("1","2"));
+
+    /**
+     * @typedef ABType
+     * @property { Number } a - real
+     * @property { "a"|"b"|"c" } b - real
+     */
+
+    /** @type { ABType } */
+    const x = {a:1,b:"c"};
+
+    /** @type { Array<String | Number> } */
+    const arr = [1,2,3, "4", "5"];
+
+    /**
+    * @type { <_T_> (argument:_T_) => _T_ } argument
+     */
+    const addOne = argument => {
+        return (argument + 1);
     };
 
-    document.writeln( foo(42) );
+    document.writeln( String(addOne(42) ));
+    document.writeln( addOne("42") );
+    document.writeln(addOne(x) )
 
 </script>
 
